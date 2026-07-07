@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday ❤</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div id="hearts-bg"></div>
+
+  <!-- MUSIC BUTTON -->
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+    🎵 <span id="musicLabel">Play song</span>
+  </button>
+
+  
+  <audio id="bgMusic" loop preload="auto" src="song.mp3"></audio>
+
+  <!-- PAGE 1: WELCOME -->
+  <div class="page active" id="p1">
+    <div class="card has-photo">
+      
+        <span class="emoji-big">🎀</span>
+      <h1>Hey Sweetheart,<br/>this is for you.</h1>
+      <p>I made this little surprise just for you. Open your surprise and go through something I put together with a lot of love. Happy birthday, my love. 
+       <br> (Make sure to play the song too on top right corner)</p>
+      <button class="btn" onclick="go(2)">Open your surprise ✨</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2: MENU -->
+  <div class="page" id="p2">
+    <div class="card">
+      <span class="emoji-big">🎁</span>
+      <h2>Pick something to open</h2>
+      <p style="margin-bottom:0.4rem;">All yours. Go in any order.</p>
+      <div class="menu-grid">
+        <div class="menu-item" onclick="go(3)">
+          <span class="menu-icon">🎂</span>
+          <div>
+            <div class="menu-label">Birthday Wishes</div>
+            <div class="menu-sub">Sweet words, just for you</div>
+          </div>
+        </div>
+        <div class="menu-item" onclick="go(4)">
+          <span class="menu-icon">💌</span>
+          <div>
+            <div class="menu-label">A Letter For You</div>
+            <div class="menu-sub">Something I wanted to say</div>
+          </div>
+        </div>
+        <div class="menu-item" onclick="go(5)">
+          <span class="menu-icon">🎮</span>
+          <div>
+            <div class="menu-label">A Little Game</div>
+            <div class="menu-sub">Catch hearts → unlock final surprise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 3: WISHES -->
+  <div class="page" id="p3">
+    <div class="card">
+      <h2>🌸 Wishes for you</h2>
+      <div class="wish-list">
+        <!-- CUSTOMIZE: edit each wish -->
+        <div class="wish-item">
+          <div class="wish-title">✨ Wish one</div>
+          <p>I hope this year brings you endless reasons to smile, quiet moments of peace, and dreams that slowly become reality. No matter what life brings, I hope you always remember how deeply you are loved, appreciated, and cherished. You deserve every beautiful thing this world has to offer.</p>
+        </div>
+        <div class="wish-item">
+          <div class="wish-title">💖 Wish two</div>
+          <p>I wish you always stay as kind, warm, and beautiful as you are right now. You make everything feel brighter just by being in it.</p>
+        </div>
+        <div class="wish-item">
+          <div class="wish-title">🌙 Wish three</div>
+          <p>If I could give you one gift beyond anything else, it would be the ability to see yourself through my eyes. Then you'd know just how wonderful, strong, and beautiful you truly are. Until then, I'll spend every chance I get reminding you. Happy Birthday, my love.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page-foot">
+      <button class="btn btn-ghost" onclick="go(2)">← Back to menu</button>
+    </div>
+  </div>
+
+  <!-- PAGE 4: LETTER -->
+  <div class="page" id="p4">
+    <div class="card">
+      <span class="emoji-big">💌</span>
+      <h2>A letter for you</h2>
+      <div class="photo-wrap">
+          <img src="pic1.jpg" alt="Her" class="her-img">
+        </div>
+      <!-- CUSTOMIZE: write your full letter inside the div below -->
+      <div class="letter-box">My Dearest Love,
+
+Happieeee Birthdayyyyy.
+
+There are moments in life that quietly change everything, and meeting you was one of those moments for me. Before you came into my life, days simply passed. Since then, they have carried a different kind of warmth and love. You are a quiet happiness that I never knew I was missing. You have a way of making ordinary moments feel extraordinary, simply by being yourself.
+
+On this special day, I want you to know how deeply grateful I am for you. Your kindness, your compassion, your laughter, and the beautiful heart you carry have become some of the greatest blessings in my life. You inspire me to become a better person, and every day I spend with you reminds me how fortunate I am to call you mine.
+
+Birthdays are more than celebrations of another year gone by; they are reminders of the countless lives a person has touched. Today, I hope you see yourself the way I see you—not through your doubts or insecurities, but through the joy you bring, the love you give so effortlessly, and the quiet strength that makes you truly remarkable. You are more wonderful than you realize, and I hope you never forget that.
+
+As you begin another chapter of your life, I wish for your days to be filled with happiness that lingers, dreams that become reality, and moments that make your heart feel full. I hope every challenge you face becomes a lesson that makes you stronger, every success reminds you of your incredible potential, and every sunrise brings new hope and beautiful opportunities. Most of all, I hope you always find peace within yourself and never stop believing in the amazing person you are.
+
+I know this isn't the kind of birthday gift wrapped in ribbons or hidden inside a box. Instead, I wanted to create something with my own hands, something that reflects not its price, but the love and thought behind it. As a CS student, I couldn't think of a better way to express my feelings than by building this little corner of the internet just for you. Every word, every page, and every small detail was made with one hope in mind: that it would bring a little smile to your face and remind you of how deeply you are loved.
+
+Thank you for your patience, your understanding, and the countless little things you do that make life brighter without even realizing it. Thank you for believing in me, encouraging me, and standing beside me through both the easy days and the difficult ones. Loving you has been one of the greatest joys of my life, and I cherish every memory we've created together.
+
+No matter what the future holds, my wish for you will always remain the same that your heart stays kind, your smile never fades, and you continue to be the wonderful person you are today. I hope you always choose the path of honesty, compassion, and integrity, even when it isn't the easiest one. Never let the world change the goodness within you; let your kindness remain your greatest strength. Keep believing in yourself, keep doing what is right, and never stop becoming the amazing woman you are meant to be. You deserve every beautiful thing this world has to offer, and I hope this year brings you closer to all the dreams you've been quietly holding onto.
+
+Happy Birthday, my love.
+
+May today remind you how incredibly cherished you are, not only on your birthday, but every single day.
+"If eternity were granted to me, I would spend every moment discovering new reasons to fall in love with you."
+
+With all my love, today and always,
+
+-Aditya Kashyap🤍
+</div>
+    </div>
+    <div class="page-foot">
+      <button class="btn btn-ghost" onclick="go(2)">← Back to menu</button>
+    </div>
+  </div>
+
+  <!-- PAGE 5: GAME -->
+  <div class="page" id="p5">
+    <div class="card">
+      <h2>🎮 Catch the hearts!</h2>
+      <p style="margin-bottom:0.5rem;">Move the bar with your finger. Catch <strong>10 hearts</strong> to unlock the final surprise!</p>
+      <div class="game-stats">
+        <div class="stat-pill">❤ Caught: <span id="score">0</span></div>
+        <div class="stat-pill">Goal: 10</div>
+      </div>
+      <div id="game-board">
+        <div id="basket"></div>
+      </div>
+      <button class="btn" id="startBtn" onclick="startGame()">▶ Start Game</button>
+      <div id="gameWin" style="display:none; margin-top:1rem;">
+        <p style="color:#c0385a; font-weight:600; margin-bottom:0.5rem;">You won! 🎉 The final surprise is ready.</p>
+        <button class="btn" onclick="go(6)">Open your final surprise 💖</button>
+      </div>
+    </div>
+    <div class="page-foot">
+      <button class="btn btn-ghost" onclick="go(2)">← Back to menu</button>
+    </div>
+  </div>
+
+  <!-- PAGE 6: FINAL -->
+  <div class="page" id="p6">
+    <div class="final-wrap">
+
+      <div class="card" style="padding-bottom:1.6rem;">
+        <div style="font-size:3rem; margin-bottom:0.8rem;">🎉🌸🎂</div>
+        <!-- CUSTOMIZE: her name -->
+        <div class="final-name">Happy Birthday,<br/>My Love! 💖</div>
+        <!-- CUSTOMIZE: subtitle -->
+        <p style="margin-top:1rem; margin-bottom:0;">You deserve every good thing in this world, today and always.</p>
+      </div>
+
+      <p class="reasons-title">✨ A few reasons you are amazing ✨</p>
+      <div class="reasons-list">
+        <!-- CUSTOMIZE: make these personal! -->
+        <div class="reason-item">
+          <div class="reason-num">01</div>
+          <div class="reason-text">Your smile — the one you do when something genuinely makes you happy. I could look at it forever.</div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-num">02</div>
+          <div class="reason-text">The way you are kind without even trying. It just comes naturally to you and it is one of the most beautiful things about you.</div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-num">03</div>
+          <div class="reason-text">How you make ordinary moments feel warm and worth remembering. I notice it every time.</div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-num">04</div>
+          <div class="reason-text">The fact that you exist, and somehow you chose to be part of my life. I am grateful for that every single day.</div>
+        </div>
+      </div>
+
+      <div class="promise-card">
+        <!-- CUSTOMIZE: final promise -->
+        <p>No birthday gift will ever be big enough for someone as special as you. But I promise to keep showing up, keep caring, and keep making you smile — not just today, but every day after this one.</p>
+        <!-- CUSTOMIZE: your sign-off -->
+        <div class="promise-sig">— Aditya Kashyap, always 🤍</div>
+      </div>
+
+      <button class="btn" onclick="go(1)" style="max-width:440px;">🔁 Replay from start</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

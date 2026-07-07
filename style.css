@@ -1,0 +1,420 @@
+/* =============================================
+   BIRTHDAY SURPRISE — style.css
+   ============================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff0f5;
+  color: #3d1a2b;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Floating hearts background ── */
+#hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fh {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0;
+  animation: riseUp linear infinite;
+}
+
+@keyframes riseUp {
+  0%   { transform: translateY(0) scale(0.8); opacity: 0; }
+  15%  { opacity: 0.4; }
+  100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
+}
+
+/* ── Music button ── */
+.music-btn {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(255, 180, 210, 0.5);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #c0385a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 18px rgba(200, 60, 110, 0.13);
+  transition: transform 0.15s, background 0.2s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.music-btn:active { transform: scale(0.95); }
+.music-btn.playing { background: rgba(232, 69, 122, 0.1); }
+
+/* ── Pages ── */
+.page {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1.2rem 3rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  animation: fadeIn 0.55s ease forwards;
+}
+
+.page.active { display: flex; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Card ── */
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 2.2rem 1.8rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 55px rgba(200, 60, 110, 0.13);
+  border: 1px solid rgba(255, 180, 210, 0.35);
+}
+
+/* allow absolute children like the profile photo */
+.card { position: relative; }
+
+.card.has-photo { padding-top: 5.2rem; }
+
+.emoji-big {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ── Typography ── */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  color: #c0385a;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  color: #c0385a;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  color: #7a3a52;
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #e8457a, #ff7aae);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(232, 69, 122, 0.32);
+  transition: transform 0.18s;
+  margin-top: 0.5rem;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-ghost {
+  background: transparent;
+  color: #c0385a;
+  box-shadow: none;
+  border: 2px solid rgba(200, 60, 100, 0.22);
+  margin-top: 0.6rem;
+}
+
+/* ── Menu ── */
+.menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.menu-item {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1.5px solid rgba(255, 180, 210, 0.4);
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.18s;
+  text-align: left;
+}
+
+.menu-item:active { transform: scale(0.97); }
+.menu-icon { font-size: 1.8rem; flex-shrink: 0; }
+.menu-label { font-weight: 600; font-size: 1rem; color: #3d1a2b; }
+.menu-sub { font-size: 0.82rem; color: #9a6070; margin-top: 0.15rem; }
+
+/* ── Wishes ── */
+.wish-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.wish-item {
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 18px;
+  padding: 1.1rem 1.2rem;
+  text-align: left;
+  border: 1px solid rgba(255, 180, 210, 0.3);
+}
+
+.wish-item p { margin: 0; font-size: 0.95rem; }
+
+.wish-title {
+  font-weight: 700;
+  color: #c0385a;
+  margin-bottom: 0.3rem;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Letter ── */
+.letter-box {
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 20px;
+  padding: 1.5rem 1.4rem;
+  text-align: left;
+  border: 1px solid rgba(255, 180, 210, 0.35);
+  white-space: pre-line;
+  line-height: 1.9;
+  font-size: 0.97rem;
+  color: #5a2d40;
+  width: 100%;
+  font-style: italic;
+}
+
+/* ── Game ── */
+#game-board {
+  width: 100%;
+  max-width: 400px;
+  height: 360px;
+  background: linear-gradient(180deg, #fff5fa 0%, #ffeaf5 100%);
+  border-radius: 22px;
+  border: 1.5px solid rgba(255, 180, 210, 0.4);
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+  margin: 1rem auto;
+}
+
+#basket {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 22px;
+  background: linear-gradient(90deg, #e8457a, #ff7aae);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(232, 69, 122, 0.3);
+}
+
+.fheart {
+  position: absolute;
+  font-size: 1.8rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 180, 210, 0.35);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #c0385a;
+}
+
+/* ── Final page ── */
+.final-wrap {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.final-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 9vw, 3.8rem);
+  color: #c0385a;
+  line-height: 1.1;
+  text-shadow: 0 0 40px rgba(232, 69, 122, 0.22);
+}
+
+.reasons-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #9a4060;
+  margin-top: 0.3rem;
+  font-style: italic;
+}
+
+.reasons-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.reason-item {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(255, 180, 210, 0.35);
+  border-radius: 16px;
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  text-align: left;
+}
+
+.reason-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: rgba(200, 60, 100, 0.2);
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.reason-text {
+  font-size: 0.93rem;
+  color: #5a2d40;
+  line-height: 1.65;
+}
+
+.promise-card {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 228, 240, 0.9), rgba(255, 255, 255, 0.9));
+  border: 1.5px dashed rgba(200, 60, 100, 0.28);
+  border-radius: 20px;
+  padding: 1.4rem 1.3rem;
+  text-align: center;
+}
+
+.promise-card p {
+  margin: 0;
+  font-size: 0.97rem;
+  color: #7a3a52;
+  line-height: 1.8;
+}
+
+.promise-sig {
+  margin-top: 1rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #c0385a;
+}
+
+.page-foot {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 440px;
+}
+
+/* ── Photo section ── */
+.photo-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card.has-photo .photo-wrap {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  margin-bottom: 0;
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,0.96);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(200, 60, 110, 0.08);
+}
+
+.card.has-photo { padding-top: 4.6rem; }
+
+.card.has-photo .photo-wrap .her-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.2s;
+}
+
+/* Default inline photo appearance (for pages like the letter) */
+.photo-wrap .her-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e8457a;
+  box-shadow: 0 8px 22px rgba(232, 69, 122, 0.32);
+  display: block;
+  margin: 0.4rem auto 1rem;
+}
+
+.her-img:active {
+  transform: scale(0.96);
+}
